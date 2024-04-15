@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
 
 
 @Component({
@@ -6,5 +6,11 @@ import { Component } from "@angular/core";
     templateUrl: './header.component.html'
 })
 export class HeaderComponent {
+    @Input() title: string;
 
+    count: number;
+
+    ngOnInit() {
+        console.log(this.title);
+    }
 }
