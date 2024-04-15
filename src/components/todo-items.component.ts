@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, EventEmitter, Output } from "@angular/core";
 import { TodoItem } from "../models/todoItem";
 
 
@@ -8,6 +8,8 @@ import { TodoItem } from "../models/todoItem";
     styleUrl: './todo-items.component.css'
 })
 export class TodoItemsComponent {
+    @Output() todoItemWasAdded = new EventEmitter<string>();
+
     showTodoItems: boolean = true;
     todoItems: TodoItem[] = [
         { id: 1, title: "Groceries", completed: false} ,
@@ -41,6 +43,7 @@ export class TodoItemsComponent {
         }
         const newTodoItem = {id: this.todoItems.length, title: this.todoItemToAdd, completed: false};
         this.todoItems.push(newTodoItem);
+        this.todoItemWasAdded.emit(this.todoItemToAdd);
         this.todoItemToAdd = "";
     }
 
