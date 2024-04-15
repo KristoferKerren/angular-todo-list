@@ -1,0 +1,9 @@
+This is my todo-items component
+
+<div>
+    <button (click)="toggleShowTodoItems()">{{showTodoItems ? 'Hide' : 'Show'}} todo items</button>
+</div>
+
+<ul *ngIf="showTodoItems">
+    <li *ngFor="let item of todoItems">{{item}}</li>
+</ul>
