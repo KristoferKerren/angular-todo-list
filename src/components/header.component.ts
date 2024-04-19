@@ -1,16 +1,15 @@
-import { Component, Input } from "@angular/core";
-
+import { Component, Input } from '@angular/core';
 
 @Component({
-    selector: 'app-header',
-    templateUrl: './header.component.html'
+  selector: 'app-header',
+  templateUrl: './header.component.html',
 })
 export class HeaderComponent {
-    @Input() title: string;
+  @Input() title: string;
+  @Input() versionNumber: number;
+  @Input() showVersionNumber: Function;
 
-    count: number;
+  inputText: string;
 
-    ngOnInit() {
-        console.log(this.title);
-    }
+  count: number;
 }
